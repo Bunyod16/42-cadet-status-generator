@@ -8,7 +8,6 @@ import pandas as pd
 UID="u-INSERT_HERE"
 SECRET="s-INSERT_HERE"
 
-
 headers = {'Content-type':'application/json'}
 r = requests.post(f"https://api.intra.42.fr/oauth/token?grant_type=client_credentials&client_id={UID}&client_secret={SECRET}", headers=headers)
 access_token = r.json()['access_token']
@@ -115,10 +114,10 @@ def generate_sheet():
     df.to_excel(f"{current_time}.xlsx", index=False)
     print(f"K Bye.")
 
-print("=========ZHEN SCRIPT========     by jakoh, bshamsid")
-print("To exit program type : 'exit'")
-print("To generate full list with updated users : 'full'")
-print("To update current list: 'update'")
+print("\033[33m=========ZHEN SCRIPT========\033[0m     \033[31mby jakoh, bshamsid\033[0m")
+print("\u001b[33mTo exit program type : 'exit'\033[0m")
+print("\u001b[33mTo generate full list with updated users : 'full'\033[0m")
+print("\u001b[33mTo update current list: 'update'\033[0m")
 ipt = input("Command: ")
 while ipt != "exit":
     if ipt == "full":
