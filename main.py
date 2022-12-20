@@ -115,7 +115,7 @@ def generate_sheet():
     df.to_excel(f"{current_time}.xlsx", index=False)
     print(f"K Bye.")
 
-print("=========ZHEN SCRIPT========")
+print("=========ZHEN SCRIPT========     by jakoh, bshamsid")
 print("To exit program type : 'exit'")
 print("To generate full list with updated users : 'full'")
 print("To update current list: 'update'")
