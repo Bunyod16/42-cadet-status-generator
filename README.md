@@ -6,10 +6,10 @@
 2. Go to Terminal or iTerm in Mac
   - Once the Terminal is up and running you will execute everything from inside the terminal
 <img width="48" alt="Screenshot 2022-12-21 at 11 38 25" src="https://user-images.githubusercontent.com/32697686/208816001-c168da86-19be-4883-8659-d072bb1914b2.png">
-3. First git clone into a folder like so : <br />
-   ```
-   git clone https://github.com/Bunyod16/42-cadet-status-generator.git zhen-script
-   ```
+3. First git clone into a folder like so :
+```
+git clone https://github.com/Bunyod16/42-cadet-status-generator.git zhen-script
+```
 4. Once you've cloned the repository go into the folder by typing
 ```
 cd folder-name
