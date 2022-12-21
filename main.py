@@ -9,15 +9,15 @@ print("\033[33m=========ZHEN SCRIPT========\033[0m     \033[31mby jakoh, bshamsi
 print("\033[33mTo run this script you must first insert your UID & your SECRET key below \033[0m")
 print("\033[33mYou can find your secret at \033[4;33mhttps://profile.intra.42.fr/oauth/applications\033[0;33m under 'YOUR APPLICATION'\033[0m")
 
-UID= input("UID: ")
-SECRET=input("SECRET: ")
+UID= input("\033[0;35mUID: \033[0m")
+SECRET=input("\033[0;35mSECRET: \033[0m")
 
 headers = {'Content-type':'application/json'}
 r = requests.post(f"https://api.intra.42.fr/oauth/token?grant_type=client_credentials&client_id={UID}&client_secret={SECRET}", headers=headers)
 access_token = r.json()['access_token']
 
 def get_all_users():
-    print("REQUESTING FOR ALL USERS")
+    print("\033[0;33mREQUESTING FOR ALL USERS\033[0m")
     i = 1
     tol = 100
     full_list = []
@@ -30,7 +30,7 @@ def get_all_users():
 
     with open("user_42kl.json","w") as f:
         f.write(json.dumps(full_list))
-    print("REQUEST COMPLETED")
+    print("\033[0;33mREQUEST COMPLETED\033[0m")
 
 def get_keys_by_type(dictionaries, key):
     # Initialize an empty list to store the keys
@@ -46,7 +46,7 @@ def get_keys_by_type(dictionaries, key):
     return keys
 
 def filter_cadets():
-    print("FILTERING CADETS FROM PISCINERS")
+    print("\033[0;33mFILTERING CADETS FROM PISCINERS\033[0m")
     try:
         with open("user_42kl.json", "r") as f:
             users_42kl = json.loads(f.read())
@@ -77,17 +77,17 @@ def filter_cadets():
             except Exception as err:
                 print(f"Error occured: {err}")
         else:
-            print(user['login'], "in dumpster or cadets")
+            print(user['login'], "discovered before")
 
     with open("cadets.json", "w") as f:
         f.write(json.dumps(passed_users))
 
     with open("dumpster.json", "w") as f:
         f.write(json.dumps(non_passed_users))
-    print("CADETS FILTERED")
+    print("\033[0;33mCADETS FILTERED\033[0m")
 
 def generate_sheet():
-    print(f"GENERATING EXCEL SHEET")
+    print(f"\033[0;33mGENERATING EXCEL SHEET\033[0m")
     with open("cadets.json", "r") as f:
         cadets = json.loads(f.read())
     data = []
@@ -113,14 +113,17 @@ def generate_sheet():
             user["status"] = "CORE PROG"
         data.append(user)
     df = pd.DataFrame.from_dict(data)
-    df.to_excel(f"{current_time}.xlsx", index=False)
+    file_name = input("\033[0;35mName Your Excel File: \033[0m")
+    df.to_excel(f"{file_name}.xlsx", index=False)
+    print(f"\033[0;34m{file_name}.xlsx has been generated.\033[0m")
+    print("\033[0;34mExit the program and type 'open .' to view the folder and get the excel\033[0m")
     print(f"\033[0;32mK Bye.\033[0m")
 
 print("\033[33m=========DHARMA GENERATOR========\033[0m     \033[31mby jakoh, bshamsid\033[0m")
 print("\u001b[33mTo exit program type: 'exit'\033[0m")
 print("\u001b[33mTo generate full list with updated users : 'full'\033[0m")
 print("\u001b[33mTo update current list: 'update'\033[0m")
-ipt = input("Command: ")
+ipt = input("\033[0;35mCommand: \033[0m")
 while ipt != "exit":
     if ipt == "full":
         get_all_users()
@@ -132,11 +135,6 @@ while ipt != "exit":
     print("\u001b[33mTo exit program type: 'exit'\033[0m")
     print("\u001b[33mTo generate full list with updated users : 'full'\033[0m")
     print("\u001b[33mTo update current list: 'update'\033[0m")
-    ipt = input("Command: ")
+    ipt = input("\033[0;35mCommand: \033[0m")
 
-# tell file name 
-# get user input for file name
 
-# get_all_users()
-# filter_cadets()
-# generate_sheet()
