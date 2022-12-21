@@ -5,15 +5,16 @@ import time
 import json
 import pandas as pd
 
-UID="u-INSERT_HERE"
-SECRET="s-INSERT_HERE"
+print("\033[33m=========ZHEN SCRIPT========\033[0m     \033[31mby jakoh, bshamsid\033[0m")
+print("\033[33mTo run this script you must first insert your UID & your SECRET key below \033[0m")
+print("\033[33mYou can find your secret at \033[4;33mhttps://profile.intra.42.fr/oauth/applications\033[0;33m under 'YOUR APPLICATION'\033[0m")
+
+UID= input("UID: ")
+SECRET=input("SECRET: ")
 
 headers = {'Content-type':'application/json'}
 r = requests.post(f"https://api.intra.42.fr/oauth/token?grant_type=client_credentials&client_id={UID}&client_secret={SECRET}", headers=headers)
 access_token = r.json()['access_token']
-
-
-
 
 def get_all_users():
     print("REQUESTING FOR ALL USERS")
@@ -94,14 +95,14 @@ def generate_sheet():
     for cadet in cadets:
         user = {}
         user["name"] = cadet["cursus_users"][1]["user"]["usual_full_name"]
-        user["preiod_from"] =  datetime.strptime(cadet["cursus_users"][1]["begin_at"], "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%d-%b-%Y")
+        user["preiod_from"] =  datetime.strptime(cadet["cursus_users"][1]["begin_at"], "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%d/%m/%Y")
         if cadet['cursus_users'][1]['grade'] == "Member":
             user["blackhole"] = current_time
         else:
             user["blackhole"] = datetime.strptime(cadet["cursus_users"][1]["blackholed_at"], "%Y-%m-%dT%H:%M:%S.%fZ")
         user["level"] = int(cadet["cursus_users"][1]["level"])
         if (user["blackhole"] < current_time and cadet['cursus_users'][1]['grade'] != "Member"):
-            user["blackhole"] = user["blackhole"].strftime("%d-%b-%Y")
+            user["blackhole"] = user["blackhole"].strftime("%d/%m/%Y")
             user["status"] = "DROPPED OUT"
         elif cadet['cursus_users'][1]['grade'] == "Member":
             user["blackhole"] = ""
@@ -112,10 +113,10 @@ def generate_sheet():
         data.append(user)
     df = pd.DataFrame.from_dict(data)
     df.to_excel(f"{current_time}.xlsx", index=False)
-    print(f"K Bye.")
+    print(f"\033[0;32mK Bye.\033[0m")
 
 print("\033[33m=========ZHEN SCRIPT========\033[0m     \033[31mby jakoh, bshamsid\033[0m")
-print("\u001b[33mTo exit program type : 'exit'\033[0m")
+print("\u001b[33mTo exit program type: 'exit'\033[0m")
 print("\u001b[33mTo generate full list with updated users : 'full'\033[0m")
 print("\u001b[33mTo update current list: 'update'\033[0m")
 ipt = input("Command: ")
@@ -127,6 +128,7 @@ while ipt != "exit":
     elif ipt == "update":
         filter_cadets()
         generate_sheet()
+    print("\u001b[33mDo you want to run it again? if not type 'exit'\033[0m")
     ipt = input("Command: ")
 
 # get_all_users()

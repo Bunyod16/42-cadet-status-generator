@@ -1,0 +1,5 @@
+Mini Instruction:
+Frist you should create a Virtual Enviroment by running 'python3 -m venv venv'
+Once Virtual Enviroment is generated run 'source venv/bin/activate' to start up venv
+once Virtual Enviroment is up you can run 'pip3 -r requirements.txt'
+if you wish to deactivate your Virtual Enviroment run 'deactivate'
