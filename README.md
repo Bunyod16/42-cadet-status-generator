@@ -1,7 +1,7 @@
 # Cadet Status Generator for 42KL:
 
 ### Instructions for Zhenny:
-1. Git Clone Report by clicking on the green button and copying the link inside under 'HTTPS'
+1. Git Clone Report by clicking on the green button and copying the link inside under `HTTPS`
 <img width="350" alt="Screenshot 2022-12-21 at 11 22 16" src="https://user-images.githubusercontent.com/32697686/208813865-4ceca585-0327-4bd3-ad16-88d971d0fcb7.png">
 2. Go to Terminal or iTerm in Mac
   - Once the Terminal is up and running you will execute everything from inside the terminal
