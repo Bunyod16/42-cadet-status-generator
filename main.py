@@ -94,13 +94,14 @@ def generate_sheet():
     current_time = datetime.now()
     for cadet in cadets:
         user = {}
-        user["name"] = cadet["cursus_users"][1]["user"]["usual_full_name"]
-        user["preiod_from"] =  datetime.strptime(cadet["cursus_users"][1]["begin_at"], "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%d/%m/%Y")
+        user["name"] = cadet["cursus_users"][1]["user"]["usual_full_name"].upper()
+        user["period_from"] =  datetime.strptime(cadet["cursus_users"][1]["begin_at"], "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%d/%m/%Y")
+        user["status"] = ""
+        user["level"] = int(cadet["cursus_users"][1]["level"])
         if cadet['cursus_users'][1]['grade'] == "Member":
             user["blackhole"] = current_time
         else:
             user["blackhole"] = datetime.strptime(cadet["cursus_users"][1]["blackholed_at"], "%Y-%m-%dT%H:%M:%S.%fZ")
-        user["level"] = int(cadet["cursus_users"][1]["level"])
         if (user["blackhole"] < current_time and cadet['cursus_users'][1]['grade'] != "Member"):
             user["blackhole"] = user["blackhole"].strftime("%d/%m/%Y")
             user["status"] = "DROPPED OUT"
@@ -115,7 +116,7 @@ def generate_sheet():
     df.to_excel(f"{current_time}.xlsx", index=False)
     print(f"\033[0;32mK Bye.\033[0m")
 
-print("\033[33m=========ZHEN SCRIPT========\033[0m     \033[31mby jakoh, bshamsid\033[0m")
+print("\033[33m=========DHARMA GENERATOR========\033[0m     \033[31mby jakoh, bshamsid\033[0m")
 print("\u001b[33mTo exit program type: 'exit'\033[0m")
 print("\u001b[33mTo generate full list with updated users : 'full'\033[0m")
 print("\u001b[33mTo update current list: 'update'\033[0m")
@@ -128,8 +129,13 @@ while ipt != "exit":
     elif ipt == "update":
         filter_cadets()
         generate_sheet()
-    print("\u001b[33mDo you want to run it again? if not type 'exit'\033[0m")
+    print("\u001b[33mTo exit program type: 'exit'\033[0m")
+    print("\u001b[33mTo generate full list with updated users : 'full'\033[0m")
+    print("\u001b[33mTo update current list: 'update'\033[0m")
     ipt = input("Command: ")
+
+# tell file name 
+# get user input for file name
 
 # get_all_users()
 # filter_cadets()
