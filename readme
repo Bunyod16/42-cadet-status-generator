@@ -1,5 +1,8 @@
-Mini Instruction:
-Frist you should create a Virtual Enviroment by running 'python3 -m venv venv'
+Mini Instruction for Zhenny:
+Frist you should create a Virtual Enviroment by typing 'python3 -m venv venv' in the terminal
 Once Virtual Enviroment is generated run 'source venv/bin/activate' to start up venv
-once Virtual Enviroment is up you can run 'pip3 -r requirements.txt'
+Once Virtual Enviroment is up you can run 'pip3 install -r requirements.txt' to install dependencies 
+After everything has been installed type 'python3 main.py' to run program
 if you wish to deactivate your Virtual Enviroment run 'deactivate'
+
+If all else fails ask Thila. <3
