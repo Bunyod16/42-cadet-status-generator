@@ -112,6 +112,8 @@ def generate_sheet():
     current_time = datetime.now()
     for cadet in cadets:
         user = {}
+        # Example of adding new fields
+        # user["YOUR CUSTOM FIELD NAME"] = cadet["JSON_FIELD(CHECK README BOTTOM)"]
         user["name"] = cadet["cursus_users"][1]["user"]["usual_full_name"].upper()
         user["period_from"] =  datetime.strptime(cadet["cursus_users"][1]["begin_at"], "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%d/%m/%Y")
         user["status"] = ""
