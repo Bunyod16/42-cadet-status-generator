@@ -32,7 +32,7 @@ You'll need to have access to your intra API keys, the program will prompt you t
    - `dumpsters.json` = Non-cadets of 42KL. **User Fields/Keys are listen down below**
 
 #### Extras :
-- To add extra fields to excel spreadsheet you can start in `def generate_sheet():` @ _line 107 (as of 6Mar23)_. Make sure to write your code in `for cadet in cadets:` and before `data.append(user)`  
+- To add extra fields to excel spreadsheet you can start in `def generate_sheet():` @ _line 107 (as of 6Mar23)_ in `main.py`. Make sure to write your code in `for cadet in cadets:` and before `data.append(user)`  
 - Each `cadet in cadets` is a object that contains the fields/keys listed below.
 
 ## EXTRA FIELDS AVAILABLE
