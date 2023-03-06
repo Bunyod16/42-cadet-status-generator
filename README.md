@@ -3,7 +3,7 @@
 ## Overview
 
 This script generates a spreadsheet about the status of 42KL's cadets for example, name, current level, status of cadet, cadet start date and more.  
-If you are zhen or someone that does not have any prior programming background please scroll to Instructions for Zhenny or click [here](#instructions-for-zhenny).
+If you are zhen or someone that does not have any prior programming background please scroll to `Instructions for Zhenny` section or click [here](#instructions-for-zhenny).
 
 ### Requirements
 You'll need to have access to your intra API keys, the program will prompt you to insert your `UID` & `SECRET` key.
