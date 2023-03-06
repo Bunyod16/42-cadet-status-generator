@@ -1,5 +1,23 @@
 # Cadet Status Generator for 42KL:
 
+## Overview
+
+This script generates a spreadsheet about the status of 42KL's cadets.  
+To use program you need to have access to your intra API keys specifically your `UID` & `SECRET` key.  
+The end product is a spreadsheet in `.xlsx` format that contains:  
+`name` = name of cadet  
+`period_from` = Cadets start date  
+`level` = Cadet level  
+`status` = 'DROPPED OUT'. 'CORE PROG', 'SPECIALISATION'  
+`blackhole` = Date of cadet being absorbed by blackhole
+
+This program also generate 3 other `.json` file:  
+`user_42kl.json` = contains all 42KL users
+`cadets.json` = All information about each cadets of 42KL. **User Fields/Keys are listen down below**  
+`dumpsters.json` = All information about each non-cadets of 42KL. **User Fields/Keys are listen down below**
+
+To add extra fields to excel spreadsheet you can start in `def generate_sheet():` @ _line 107 (as of 6Mar23)_. Make sure to write your code in `for cadet in cadets:` and before `data.append(user)`
+
 ### Instructions for Zhenny:
 
 1. Git Clone Report by clicking on the green button and copying the link inside under `HTTPS`
@@ -75,6 +93,7 @@ If all else fails ask Thila. <3
 <br />
 
 ## EXTRA FIELDS AVAILABLE
+
 <table>
   <tr>
     <th>field_name</th>
